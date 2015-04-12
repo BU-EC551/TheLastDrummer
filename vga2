@@ -1,0 +1,28 @@
+module vga2(color,offset, inDisplayArea, CounterX, CounterY, pixel_clk);
+input pixel_clk;
+input [9:0]offset;
+input inDisplayArea;
+input [9:0] CounterX;
+input [8:0] CounterY;
+output reg color;
+reg x;
+
+
+always @(posedge pixel_clk)
+begin
+if(CounterX>=(0+offset) && CounterX<=(10+offset))begin
+ if(CounterY>=120 && CounterY<=239)begin
+ x=1;
+ end
+ end
+else x=0;
+end 
+
+always @(posedge pixel_clk)
+begin
+  color <= x & inDisplayArea;
+  
+   
+end
+endmodule
+
