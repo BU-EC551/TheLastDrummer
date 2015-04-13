@@ -45,13 +45,15 @@ int get_result(){
  			  +CONSEQ_0; // single channel, single conversion
  			  ;
  	ADC10AE0=ADC_INPUT_BIT_MASK; // enable A4 analog input
- 	ADC10CTL0= SREF_0	//reference voltages are Vss and Vcc
+ 	ADC10CTL0= SREF_0//reference voltages are Vss and Vcc
  	          +ADC10SHT_3 //64 ADC10 Clocks for sample and hold time (slowest)
  	          +ADC10ON	//turn on ADC10
- 	          +ENC		//enable (but not yet start) conversions
+ 	          +ENC
+
+ 	          //enable (but not yet start) conversions
  	          ;
  }
-
+ unsigned long hit;
  int flag[3] ={0,0,0};
 void main(){
 
@@ -60,21 +62,17 @@ void main(){
 	WDTCTL = WDTPW + WDTHOLD;       // Stop watchdog timer
 	BCSCTL1 = CALBC1_8MHZ;			// 8Mhz calibration for clock
   	DCOCTL  = CALDCO_8MHZ;
-  	unsigned long j = 50000;
+
   	init_adc();
-  	int i = 0;
+
   	while(1){
   		start_conversion();
 
+  		hit = get_result();
   		latest_result[i]=get_result();
-  
+  		if(hit>10 ) { P1OUT ^= 0x01; flag[2] += 1;}
+  		else if(hit>1030) { P1OUT ^= 0x40; flag[1] += 1;}
 
-  		//if(latest_result[i]<0) {latest_result[i] = latest_result[i] +80; flag[0] += 1;}
-  		if(latest_result[i]>600 ) { P1OUT ^= 0x01; flag[2] += 1;}
-  		else if(latest_result[i]>550) { P1OUT ^= 0x40; flag[1] += 1;}
-  	    i++;
-  	    j = 50000;
-  		if(i>99) i =0;
   	}
 
 }
