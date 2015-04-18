@@ -1,0 +1,8 @@
+NET "drum[0]" LOC = H3;
+NET "drum[1]" LOC = L7;
+NET "drum[2]" LOC = G3;
+NET "drum[3]"  LOC = G1;
+Net "Led[0]" LOC = U16 | IOSTANDARD = LVCMOS33; 
+Net "Led[1]" LOC = V16 |  IOSTANDARD = LVCMOS33; 
+Net "Led[2]" LOC = U15 |  IOSTANDARD = LVCMOS33; 
+Net "Led[3]" LOC = V15 |  IOSTANDARD = LVCMOS33;
