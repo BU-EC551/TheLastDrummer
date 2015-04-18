@@ -1,0 +1,81 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Boston University
+// Engineer: Anisha datla
+// 
+// Create Date:    19:09:42 03/02/2015 
+// Design Name: 
+// Module Name:    monitor 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module monitor(output vga_h_sync, vga_v_sync,output [7:0]color,input clk);
+	 
+
+wire pixel_clk;	
+parameter [9:0]offset1 = 102;
+parameter [9:0]offset2 = 154; 
+parameter [9:0]offset3 = 206; 
+parameter [9:0]offset4 = 258;
+parameter [9:0]offset5 = 310;
+parameter [9:0]offset6 = 362; 
+parameter [9:0]offset7 = 414; 
+parameter [9:0]offset8 = 466;
+
+parameter [9:0]offset11 = 102;
+parameter [9:0]offset12 = 174; 
+parameter [9:0]offset13 = 226; 
+parameter [9:0]offset14 = 258;
+parameter [9:0]offset15 = 330;
+parameter [9:0]offset16 = 382; 
+parameter [9:0]offset17=  434;
+parameter [9:0]offset18=  466; 
+
+wire vga_R1, vga_R2, vga_R3,vga_R4,vga_R5, vga_R6, vga_R7,vga_R8,vga_R11, vga_R12, vga_R13,vga_R14,vga_R15, vga_R16, vga_R17,vga_R18;
+wire inDisplayArea;
+wire color2,color1,colora;
+wire [9:0] CounterX;
+wire [8:0] CounterY;
+
+
+assign color2= vga_R1 || vga_R2 || vga_R3 || vga_R4 || vga_R5|| vga_R6 || vga_R7 || vga_R8 ;
+assign color1=vga_R11 || vga_R12 || vga_R13 || vga_R14 || vga_R15 || vga_R16 || vga_R17 || vga_R18;
+assign colora= color1 || color2;
+assign color={8{colora}};
+
+
+clockdiv cl1(pixel_clk,clk);
+sync syncgen( .vga_h_sync(vga_h_sync), .vga_v_sync(vga_v_sync), .inDisplayArea(inDisplayArea), .CounterX(CounterX), .CounterY(CounterY),.pixel_clk(pixel_clk));
+ 
+vga v1(vga_R1,  offset1, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga v2(vga_R2,  offset2, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga v3(vga_R3,  offset3, inDisplayArea, CounterX, CounterY,pixel_clk);
+vga v4(vga_R4,  offset4, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga v5(vga_R5,  offset5, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga v6(vga_R6,  offset6, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga v7(vga_R7,  offset7, inDisplayArea, CounterX, CounterY,pixel_clk);
+vga v8(vga_R8,  offset8, inDisplayArea, CounterX, CounterY, pixel_clk);
+
+vga1 v11(vga_R11,  offset11, inDisplayArea, CounterX, CounterY, pixel_clk);
+
+vga1 v13(vga_R13,  offset13, inDisplayArea, CounterX, CounterY,pixel_clk);
+vga1 v14(vga_R14,  offset14, inDisplayArea, CounterX, CounterY, pixel_clk);
+
+vga1 v17(vga_R17,  offset17, inDisplayArea, CounterX, CounterY,pixel_clk);
+vga1 v18(vga_R18,  offset18, inDisplayArea, CounterX, CounterY, pixel_clk);
+
+
+vga2 v12(vga_R12,  offset12, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga2 v15(vga_R15,  offset15, inDisplayArea, CounterX, CounterY, pixel_clk);
+vga2 v16(vga_R16,  offset16, inDisplayArea, CounterX, CounterY, pixel_clk);
+
+endmodule 

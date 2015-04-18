@@ -1,0 +1,16 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "mclk" LOC = V10;
+NET "bits" LOC = H3;
+NET "data" LOC = L7;
+NET "clk"  LOC = K6;
+NET "clk" CLOCK_DEDICATED_ROUTE = FALSE;
+Net "Led[0]" LOC = U16 | IOSTANDARD = LVCMOS33; 
+Net "Led[1]" LOC = V16 |  IOSTANDARD = LVCMOS33; 
+Net "Led[2]" LOC = U15 |  IOSTANDARD = LVCMOS33; 
+Net "Led[3]" LOC = V15 |  IOSTANDARD = LVCMOS33; 
+Net "Led[4]" LOC = M11 |  IOSTANDARD = LVCMOS33; 
+Net "Led[5]" LOC = N11 |  IOSTANDARD = LVCMOS33; 
+Net "Led[6]" LOC = R11 |  IOSTANDARD = LVCMOS33; 
+Net "Led[7]" LOC = T11 |  IOSTANDARD = LVCMOS33;
