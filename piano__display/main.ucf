@@ -1,0 +1,35 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "data_BLUE[5]" LOC = C5;
+NET "data_BLUE[4]" LOC = B6;
+NET "data_BLUE[2]" LOC = C7;
+NET "data_BLUE[0]" LOC = B4;
+NET "data_BLUE[7]" LOC = A5;
+NET "data_BLUE[6]" LOC = A6;
+NET "data_BLUE[3]" LOC = A7;
+NET "data_BLUE[1]" LOC = A4;
+NET "data_GREEN[6]" LOC = B9;
+NET "data_GREEN[5]" LOC = G9;//
+NET "data_GREEN[1]" LOC = B11;
+NET "data_GREEN[0]" LOC = F9;//
+NET "data_GREEN[7]" LOC = A9;
+NET "data_GREEN[4]" LOC = D8;//
+NET "data_GREEN[3]" LOC = A11;
+NET "data_GREEN[2]" LOC = C8;//
+NET "data_RED[0]" LOC = A12;
+NET "data_RED[3]" LOC = E13;
+NET "data_RED[5]" LOC = A14;
+NET "data_RED[7]" LOC = A13;
+NET "data_RED[1]" LOC = B12;
+NET "data_RED[2]" LOC = F13;
+NET "data_RED[4]" LOC = B14;
+NET "data_RED[6]" LOC = C13;
+NET "Clk" LOC = V10;
+NET "DISP" LOC = C15;
+NET "rst" LOC = T8;
+NET "TFT_en" LOC = D14;
+NET "backlight" LOC = C14;
+NET "DE_clk" LOC = A15;
+NET "startclk" LOC = U16;
+NET "clk_lcd" LOC =C10;
