@@ -1,2 +1,0 @@
-Net "clk" LOC=V10 ;
-Net "speaker" LOC = B2; 

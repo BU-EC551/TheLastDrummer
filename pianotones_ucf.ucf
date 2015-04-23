@@ -1,2 +1,0 @@
-NET "sysclk" LOC="V10";
-NET "speaker" LOC="B2";
