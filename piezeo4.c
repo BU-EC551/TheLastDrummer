@@ -24,7 +24,7 @@ void main (void)
                              // Clear P1.0 LED off
    if(res[0]>1020) P1OUT |= 0x01;
     else P1OUT &= ~0x01;
-    if(res[1]>1020) P1OUT |= 0x20;
+    if(res[1]>1020) P1OUT |= 0x20; 
         else P1OUT &= ~0x20;
     if(res[2]>1020) {count ++; if(count>10) P1OUT |= 0x40;}
         else {P1OUT &= ~0x40; count=0;}
