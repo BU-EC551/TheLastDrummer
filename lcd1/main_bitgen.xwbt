@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=X:\Desktop\study material\ec551\project\lcd1\main.ncd
+OUTFILE=X:\Desktop\study material\ec551\project\lcd1\main.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=X:\Desktop\study material\ec551\project\lcd1
+LICENSE=ISE
+USER_INFO=174135685_174135686_210570941_745
